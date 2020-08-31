@@ -30,7 +30,9 @@ export class SetEnvHandler extends CommandHandler {
             apiKey: args[1]
         });
 
-        writeFile('./src/cache/user.json', json, 'utf8', () => { });
+        writeFile(this.settings.chachePath, json, 'utf8', () => { 
+            this.logger.success('You are good to go.');
+        });
     }
 
     public getMethod(): string {
