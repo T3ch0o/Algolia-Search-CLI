@@ -1,4 +1,4 @@
 export enum Command {
     SET = 'set',
-    REMOVE_CACHE = 'clear-cache'
+    CLEAR_CACHE = 'clear-cache'
 }
