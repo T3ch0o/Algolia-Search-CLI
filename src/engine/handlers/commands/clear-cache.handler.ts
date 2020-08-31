@@ -6,7 +6,7 @@ import { writeFile } from 'fs';
 import { Command } from "../../../enums/commands.enum";
 
 @Injectable()
-export class ClearCache extends CommandHandler {
+export class ClearCacheHandler extends CommandHandler {
     constructor(private settings: Settings, private logger: Logger) {
         super();
     }
