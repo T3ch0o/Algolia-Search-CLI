@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import { injector } from "./injector";
-import { CommandEngine } from './command-engine';
+import { Bootstrap } from './bootstrap';
 
-const bootstrap: CommandEngine = injector.get(CommandEngine);
+const bootstrap: Bootstrap = injector.get(Bootstrap);
 bootstrap.start();
 
