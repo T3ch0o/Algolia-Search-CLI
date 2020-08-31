@@ -4,6 +4,7 @@ import { Settings } from './../../../config/settings';
 import { CommandHandler } from "./../command.handler";
 import { Command } from "../../../enums/commands.enum";
 import { Injectable } from "injection-js";
+import { writeFile, exists } from 'fs';
 
 @Injectable()
 export class SetEnvHandler extends CommandHandler {
@@ -24,7 +25,12 @@ export class SetEnvHandler extends CommandHandler {
             return;
         }
 
-        console.log(args);
+        const json = JSON.stringify({
+            appId: args[0],
+            apiKey: args[1]
+        });
+
+        writeFile('./src/cache/user.json', json, 'utf8', () => { });
     }
 
     public getMethod(): string {
