@@ -16,7 +16,7 @@ export class SetEnvHandler extends CommandHandler {
         const args: Array<string> = this.settings.cli[this.getMethod()]
 
         if (args.length !== 2) {
-            this.logger.error('Invalid length of arguments. You must provide only 2: ApplicationId:SearchAPIKey.');
+            this.logger.error('Invalid length of arguments. You must provide exactly 2: ApplicationId:SearchAPIKey.');
             return;
         }
 
