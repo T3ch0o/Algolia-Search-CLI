@@ -1,6 +1,6 @@
 import { Injectable, Injector } from "injection-js";
 import { CommandHandler } from "./handlers/command.handler";
-import { handlers } from './handlers/injector-config.handlers';
+import { handlers } from './handlers/injector.config';
 
 @Injectable()
 export class Engine {

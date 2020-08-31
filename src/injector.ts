@@ -3,7 +3,7 @@ import { Logger } from './utils/logger.util';
 import { ReflectiveInjector } from "injection-js";
 import { Bootstrap } from "./bootstrap";
 import { Settings } from './config/settings';
-import { handlers } from './engine/handlers/injector-config.handlers';
+import { handlers } from './engine/handlers/injector.config';
 
 export const classes = [
     Bootstrap, Settings, Engine,
