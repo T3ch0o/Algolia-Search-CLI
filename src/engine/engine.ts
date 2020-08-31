@@ -28,7 +28,9 @@ export class Engine {
      *
      * @param command
      */
-    public route(command: string) {
-        this.map.get(command).handle();
+    public route(command: string): void {
+        if (null !== command && this.map.has(command)) {
+            this.map.get(command).handle();
+        }
     }
 }
