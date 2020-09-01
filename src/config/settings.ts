@@ -1,6 +1,4 @@
 import { Injectable } from 'injection-js';
-import { existsSync, readFile, exists } from 'fs';
-import { UserInterface } from './../interfaces/user.interface';
 import { CommandParser } from './../utils/command-parser.util';
 import { Command } from 'commander';
 import path from 'path';
@@ -11,15 +9,11 @@ export class Settings {
 
     public command: string;
 
-    // User is included if there's cache file
-    public user: UserInterface;
-
     public chachePath: string;
 
     constructor() {
         this.cli = new Command();
         this.chachePath = path.join(__dirname, 'user.json');
-        this.user = null;
     }
 
     /**
@@ -37,18 +31,12 @@ export class Settings {
                 '--clear-cache',
                 'clear all your data'
             )
+            .option(
+                '--search',
+                'go to seach mode'
+            )
             .parse(process.argv);
         
         this.command = CommandParser.getCommand(this.cli);
-
-        // Getting the user file if there's such in order to use on the execution program process
-        exists(this.chachePath, (exists: boolean) => {
-            if (exists) {
-                readFile(this.chachePath, 'utf-8', (err: any, data: any) => {
-                    this.user = JSON.parse(data) as UserInterface;
-                    console.log(this.user);
-                });
-            }
-        });
     }
 }
