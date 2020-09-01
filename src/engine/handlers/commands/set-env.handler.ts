@@ -15,8 +15,8 @@ export class SetEnvHandler extends CommandHandler {
     public handle(): void {
         const args: Array<string> = this.settings.cli[this.getMethod()]
 
-        if (args.length !== 2) {
-            this.logger.error('Invalid length of arguments. You must provide exactly 2: ApplicationId:SearchAPIKey.');
+        if (args.length !== 3) {
+            this.logger.error('Invalid length of arguments. You must provide exactly 3: ApplicationId:SearchAPIKey:IndexName.');
             return;
         }
 
@@ -27,11 +27,12 @@ export class SetEnvHandler extends CommandHandler {
 
         const json = JSON.stringify({
             appId: args[0],
-            apiKey: args[1]
+            apiKey: args[1],
+            indexName: args[2]
         });
 
         writeFile(this.settings.chachePath, json, 'utf8', () => { 
-            this.logger.success('You are good to go.');
+            this.logger.success('You credentials are set up and you are ready to go.');
         });
     }
 
