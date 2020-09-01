@@ -30,7 +30,7 @@ export class Settings {
             .version('1.0.0')
             .option(
                 '--set <APIKeys>',
-                'set your algolia API Keys using: --set ApplicationId:SearchAPIKey',
+                'set your algolia API Keys using: --set ApplicationId:SearchAPIKey:IndexName',
                 CommandParser.collectInputData
             )
             .option(
@@ -40,14 +40,13 @@ export class Settings {
             .parse(process.argv);
         
         this.command = CommandParser.getCommand(this.cli);
-        console.log(this.chachePath);
 
         // Getting the user file if there's such in order to use on the execution program process
         exists(this.chachePath, (exists: boolean) => {
             if (exists) {
                 readFile(this.chachePath, 'utf-8', (err: any, data: any) => {
-                    console.log(data);
                     this.user = JSON.parse(data) as UserInterface;
+                    console.log(this.user);
                 });
             }
         });
