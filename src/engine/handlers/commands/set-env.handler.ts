@@ -2,7 +2,7 @@ import { Checker } from './../../../utils/checker.util';
 import { Logger } from './../../../utils/logger.util';
 import { Settings } from './../../../config/settings';
 import { CommandHandler } from "./../command.handler";
-import { Command } from "../../../enums/commands.enum";
+import { Command } from '../../../enums/commands.enum';
 import { Injectable } from 'injection-js';
 import { writeFile } from 'fs';
 
@@ -17,12 +17,12 @@ export class SetEnvHandler extends CommandHandler {
 
         if (args.length !== 3) {
             this.logger.error('Invalid length of arguments. You must provide exactly 3: ApplicationId:SearchAPIKey:IndexName.');
-            return;
+            process.exit(0);
         }
 
         if (Checker.isArgsEmpty(args)) {
-            this.logger.error('One of the arguments are empty please try again with valid ones.');
-            return;
+            this.logger.error('One/more of the arguments is/are empty please try again with valid ones.');
+            process.exit(0);
         }
 
         const json = JSON.stringify({
@@ -32,7 +32,7 @@ export class SetEnvHandler extends CommandHandler {
         });
 
         writeFile(this.settings.chachePath, json, 'utf8', () => { 
-            this.logger.success('You credentials are set up and you are ready to go.');
+            this.logger.success('Your credentials are set up. You are totaly ready to go and search for some data.');
         });
     }
 

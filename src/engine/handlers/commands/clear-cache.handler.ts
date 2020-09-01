@@ -1,9 +1,9 @@
 import { Logger } from './../../../utils/logger.util';
 import { Settings } from './../../../config/settings';
 import { Injectable } from 'injection-js';
-import { CommandHandler } from "./../command.handler";
+import { CommandHandler } from './../command.handler';
 import { writeFile } from 'fs';
-import { Command } from "../../../enums/commands.enum";
+import { Command } from '../../../enums/commands.enum';
 
 @Injectable()
 export class ClearCacheHandler extends CommandHandler {
