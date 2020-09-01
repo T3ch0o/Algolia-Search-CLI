@@ -1,7 +1,7 @@
 import { Engine } from './engine/engine';
 import { Logger } from './utils/logger.util';
-import { ReflectiveInjector } from "injection-js";
-import { Bootstrap } from "./bootstrap";
+import { ReflectiveInjector } from 'injection-js';
+import { Bootstrap } from './bootstrap';
 import { Settings } from './config/settings';
 import { handlers } from './engine/handlers/injector.config';
 

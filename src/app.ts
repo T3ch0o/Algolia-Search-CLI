@@ -1,5 +1,6 @@
-import "reflect-metadata";
-import { injector } from "./injector";
+#!/usr/bin/env node
+import 'reflect-metadata';
+import { injector } from './injector';
 import { Bootstrap } from './bootstrap';
 
 const bootstrap: Bootstrap = injector.get(Bootstrap);

@@ -1,11 +1,12 @@
 {
-  "name": "algolia-search-cli",
+  "name": "test-algolia17",
   "version": "1.0.0",
   "description": "",
   "main": "dist/app.js",
   "author": "Stoyan Kalpakechiev <t3cho.k@gmail.com>",
+  "license": "MIT",
   "bin": {
-    "algolia": "dist/app.js"
+    "algolia": "./dist/app.js"
   },
   "scripts": {
     "start": "node dist/app.js",
@@ -14,7 +15,8 @@
     "test": "npm run test-rq && npm run test-it && npm run test-ms",
     "watch-test-rq": "npm run test-rq -- --watchAll",
     "watch-test-it": "npm run test-it -- --watchAll",
-    "watch-test-ms": "npm run test-ms -- --watchAll"
+    "watch-test-ms": "npm run test-ms -- --watchAll",
+    "preinstall": "tsc"
   },
   "dependencies": {
     "@types/chalk": "^2.2.0",

@@ -1,7 +1,6 @@
-import { Command } from './enums/commands.enum';
 import { Engine } from './engine/engine';
 import { Logger } from './utils/logger.util';
-import { Injectable } from "injection-js";
+import { Injectable } from 'injection-js';
 
 import { Settings } from './config/settings';
 

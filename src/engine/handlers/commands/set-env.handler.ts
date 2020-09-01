@@ -3,8 +3,8 @@ import { Logger } from './../../../utils/logger.util';
 import { Settings } from './../../../config/settings';
 import { CommandHandler } from "./../command.handler";
 import { Command } from "../../../enums/commands.enum";
-import { Injectable } from "injection-js";
-import { writeFile, exists } from 'fs';
+import { Injectable } from 'injection-js';
+import { writeFile } from 'fs';
 
 @Injectable()
 export class SetEnvHandler extends CommandHandler {

@@ -1,8 +1,9 @@
 import { Injectable } from 'injection-js';
-import { existsSync, readFile } from 'fs';
+import { existsSync, readFile, exists } from 'fs';
 import { UserInterface } from './../interfaces/user.interface';
 import { CommandParser } from './../utils/command-parser.util';
-import { Command } from "commander";
+import { Command } from 'commander';
+import path from 'path';
 
 @Injectable()
 export class Settings {
@@ -13,10 +14,12 @@ export class Settings {
     // User is included if there's cache file
     public user: UserInterface;
 
-    public chachePath = './src/cache/user.json'
+    public chachePath: string;
 
     constructor() {
         this.cli = new Command();
+        this.chachePath = path.join(__dirname, 'user.json');
+        this.user = null;
     }
 
     /**
@@ -37,16 +40,16 @@ export class Settings {
             .parse(process.argv);
         
         this.command = CommandParser.getCommand(this.cli);
+        console.log(this.chachePath);
 
         // Getting the user file if there's such in order to use on the execution program process
-        try {
-            if (existsSync(this.chachePath)) {
+        exists(this.chachePath, (exists: boolean) => {
+            if (exists) {
                 readFile(this.chachePath, 'utf-8', (err: any, data: any) => {
-                    this.user = JSON.parse(data);
+                    console.log(data);
+                    this.user = JSON.parse(data) as UserInterface;
                 });
             }
-        } catch(err) {
-            console.error('Something went wrong with the system please try again.');
-        }
+        });
     }
 }
