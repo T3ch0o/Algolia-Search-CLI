@@ -14,18 +14,18 @@ export class Logger {
     }
 
     public error(message: string): void {
-        console.log(chalk.red(message));
+        console.log(chalk.bgRed.bold(message));
     }
 
     public info(message: string): void {
-        console.log(chalk.blueBright(message));
+        console.log(chalk.bgBlueBright.bold(message));
     }
 
     public warn(message: string): void {
-        console.log(chalk.yellow(message));
+        console.log(chalk.bgYellow.bold(message));
     }
 
     public success(message: string): void {
-        console.log(chalk.green(message));
+        console.log(chalk.bgGreen.bold(message));
     }
 }
