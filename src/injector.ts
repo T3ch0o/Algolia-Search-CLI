@@ -1,3 +1,4 @@
+import { AlgoliaSettings } from './config/algolia.settings';
 import { Engine } from './engine/engine';
 import { Logger } from './utils/logger.util';
 import { ReflectiveInjector } from 'injection-js';
@@ -6,7 +7,7 @@ import { Settings } from './config/settings';
 import { handlers } from './engine/handlers/injector.config';
 
 export const classes = [
-    Bootstrap, Settings, Engine,
+    Bootstrap, Settings, AlgoliaSettings, Engine,
 
     // Utils
     Logger,
