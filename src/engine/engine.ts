@@ -1,5 +1,5 @@
-import { Injectable, Injector } from "injection-js";
-import { CommandHandler } from "./handlers/command.handler";
+import { Injectable, Injector } from 'injection-js';
+import { CommandHandler } from './handlers/command.handler';
 import { handlers } from './handlers/injector.config';
 
 @Injectable()
