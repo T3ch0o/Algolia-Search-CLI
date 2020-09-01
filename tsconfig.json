@@ -7,18 +7,14 @@
         "target": "es6",
         "noImplicitAny": true,
         "moduleResolution": "node",
+        "skipLibCheck": true,
         "sourceMap": true,
         "outDir": "dist",
         "baseUrl": ".",
         "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
-        "paths": {
-            "*": [
-                "node_modules/*",
-            ]
-        }
+        "emitDecoratorMetadata": true
     },
     "include": [
         "src",
-    ]
+    ],
 }
