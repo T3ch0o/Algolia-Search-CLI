@@ -1,3 +1,4 @@
+import { AlgoliaSearchApiErrorResponseInterface } from './../../../interfaces/algolia-search-api-error-response.interface';
 import { AlgoliaSettings } from './../../../config/algolia.settings';
 import { Command } from '../../../enums/commands.enum';
 import { Logger } from './../../../utils/logger.util';
@@ -20,7 +21,7 @@ export class SearchHandler extends CommandHandler {
         }
 
         this.alogoliaSettings.init();
-        this.logger.info('If you want to exit the search press ctr + c')
+        this.logger.info('If you want to exit the search press ctrl + c')
         this.searchQuery();
     }
 
@@ -35,10 +36,14 @@ export class SearchHandler extends CommandHandler {
             message: 'Search Value (on empty value you will retrieve all data) ->'
             }])
             .then((answer: string) => {
-                this.alogoliaSettings.index.search(answer.search).then(({ hits }: any) => {
-                    this.logger.renderTable(hits);
-                    this.searchQuery();
-                });
+                this.alogoliaSettings.index.search(answer.search)
+                    .then(({ hits }: any) => {
+                        this.logger.renderTable(hits);
+                        this.searchQuery();
+                    })
+                    .catch((err: AlgoliaSearchApiErrorResponseInterface) => {
+                        this.logger.error(err.message);
+                    });
             });
     }
 }
