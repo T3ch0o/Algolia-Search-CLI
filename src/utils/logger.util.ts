@@ -2,6 +2,8 @@ import { Settings } from '../config/settings';
 import figlet from 'figlet';
 import chalk from 'chalk';
 import { Injectable } from 'injection-js';
+import { AlgoliaSearchApiResponseInterface } from '../interfaces/algolia-search-api-response.interface';
+import { report } from 'process';
 
 @Injectable()
 export class Logger {
@@ -43,11 +45,11 @@ export class Logger {
      * 
      * @param list 
      */
-    public renderTable(list: Array<any>): void {
+    public renderTable(response: AlgoliaSearchApiResponseInterface): void {
         const map: Array<any> = [];
 
         // Going through the object list
-        for (const data of list) {
+        for (const data of response.hits) {
             const finalObj: any = {};
 
             // Going through the object(keys - values)
@@ -65,6 +67,7 @@ export class Logger {
 
         if (map.length > 0) {
             console.table(map);
+            console.log(`----- Page <<${response.page + 1} of ${response.nbPages}>> -----`)
         } else {
             console.log(chalk.bgBlue.bold('There is no data in this seach query'));
         }
