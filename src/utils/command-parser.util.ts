@@ -1,5 +1,5 @@
 export class CommandParser {
-    public static collectInputData(value: string): Array<string> {
+    public static getInputData(value: string): Array<string> {
         return value.split(':');
     }
 
