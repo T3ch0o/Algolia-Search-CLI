@@ -21,11 +21,11 @@ export class Settings {
      */
     public init(): void {
         this.cli
-            .version('0.0.1')
+            .version('0.0.2')
             .option(
                 '--set <APIKeys>',
                 'set your algolia API Keys using: --set ApplicationId:SearchAPIKey:IndexName',
-                CommandParser.collectInputData
+                CommandParser.getInputData
             )
             .option(
                 '--clear-cache',
