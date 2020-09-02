@@ -21,7 +21,7 @@ export class Settings {
      */
     public init(): void {
         this.cli
-            .version('1.0.0')
+            .version('0.0.1')
             .option(
                 '--set <APIKeys>',
                 'set your algolia API Keys using: --set ApplicationId:SearchAPIKey:IndexName',
