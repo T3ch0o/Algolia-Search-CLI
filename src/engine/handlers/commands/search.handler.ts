@@ -21,14 +21,14 @@ export class SearchHandler extends CommandHandler {
 
     public handle(): void {
         if (null === this.alogoliaSettings.user || (this.alogoliaSettings !== null && Object.keys(this.alogoliaSettings.user).length === 0)) {
-            this.logger.info('You have to set you credentials first before trying to search anything in here!');
+            this.logger.info('You have to set your credentials first before trying to search anything in here!');
 
             process.exit(0);
         }
 
         this.alogoliaSettings.init();
         this.logger.info('If you want to exit the search press ctrl + c');
-        
+
         this.setAttributes();
     }
 

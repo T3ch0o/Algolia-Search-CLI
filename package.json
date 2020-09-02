@@ -1,6 +1,6 @@
 {
   "name": "cli-algolia-search",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "dist/app.js",
   "author": "Stoyan Kalpakechiev <t3cho.k@gmail.com>",
