@@ -1,5 +1,5 @@
 import { SearchCommand } from './../../../enums/search-commands.enum';
-import { AlgoliaSearchApiResponseInterface } from './../../../interfaces/algolia-search-api-response.interface copy';
+import { AlgoliaSearchApiResponseInterface } from '../../../interfaces/algolia-search-api-response.interface';
 import { Checker } from './../../../utils/checker.util';
 import { CommandParser } from './../../../utils/command-parser.util';
 import { AlgoliaSearchApiErrorResponseInterface } from './../../../interfaces/algolia-search-api-error-response.interface';
