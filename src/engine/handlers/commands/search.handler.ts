@@ -27,7 +27,8 @@ export class SearchHandler extends CommandHandler {
         }
 
         this.alogoliaSettings.init();
-        this.logger.info('If you want to exit the search press ctrl + c')
+        this.logger.info('If you want to exit the search press ctrl + c');
+        
         this.setAttributes();
     }
 
